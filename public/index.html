@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#006eff" />
+    <link rel="icon" href="favicon.ico" />
+    <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
+    <script>
+      // Production only. In development the stale-while-revalidate cache serves
+      // old bundles after a rebuild, which looks like changes silently not
+      // applying. Also unregister any worker left over from a previous session,
+      // otherwise it keeps controlling the page on localhost forever.
+      if ('serviceWorker' in navigator) {
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+          navigator.serviceWorker.getRegistrations()
+            .then(function (rs) { rs.forEach(function (r) { r.unregister(); }); });
+        } else {
+          navigator.serviceWorker.register('/service-worker.js');
+        }
+      }
+    </script>
+    <link rel="manifest" href="/manifest.json" />
+    <title>RentVerse</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

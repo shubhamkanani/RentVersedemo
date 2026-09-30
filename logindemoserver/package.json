@@ -1,0 +1,27 @@
+{
+  "name": "logindemoserver",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Wallet authentication server for RentVerse — SIWE (EIP-4361) login with MetaMask.",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test:auth": "node scripts/smoke-test.js",
+    "test:contracts": "node scripts/contract-smoke-test.js",
+    "test": "npm run test:auth && npm run test:contracts"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.4",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.4.1",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.23.8"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
